@@ -7,7 +7,6 @@ import io.github.darlene.leakdetectionapplication.configuration.*;
 import io.github.darlene.leakdetectionapplication.messaging.*;
 import io.github.darlene.leakdetectionapplication.monitoring.*;
 import io.github.darlene.leakdetectionapplication.pipeline.*;
-import io.github.darlene.leakdetectionapplication.recommendation.*;
 import io.github.darlene.leakdetectionapplication.sensor.*;
 import io.github.darlene.leakdetectionapplication.simulation.*;
 import io.github.darlene.leakdetectionapplication.shared.*;
@@ -18,7 +17,6 @@ import org.springframework.ai.chat.client.ChatClient;
 import lombok.extern.slf4j.Slf4j;
 
 import io.github.darlene.leakdetectionapplication.pipeline.MLPredictionResponse;
-import io.github.darlene.leakdetectionapplication.recommendation.RecommendationServiceException;
 
 import java.util.Map;
 
