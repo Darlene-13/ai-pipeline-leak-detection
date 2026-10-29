@@ -8,7 +8,6 @@ import io.github.darlene.leakdetectionapplication.messaging.*;
 import io.github.darlene.leakdetectionapplication.monitoring.*;
 import io.github.darlene.leakdetectionapplication.pipeline.*;
 import io.github.darlene.leakdetectionapplication.recommendation.*;
-import io.github.darlene.leakdetectionapplication.sensor.*;
 import io.github.darlene.leakdetectionapplication.simulation.*;
 import io.github.darlene.leakdetectionapplication.shared.*;
 
@@ -16,10 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.darlene.leakdetectionapplication.sensor.SensorReading;
 import io.github.darlene.leakdetectionapplication.pipeline.ProcessingService;
-import io.github.darlene.leakdetectionapplication.sensor.SensorReadingMapper;
-import io.github.darlene.leakdetectionapplication.sensor.SensorReadingRequest;
 
 @Service
 @Slf4j

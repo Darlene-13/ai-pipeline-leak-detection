@@ -8,7 +8,6 @@ import io.github.darlene.leakdetectionapplication.messaging.*;
 import io.github.darlene.leakdetectionapplication.monitoring.*;
 import io.github.darlene.leakdetectionapplication.pipeline.*;
 import io.github.darlene.leakdetectionapplication.recommendation.*;
-import io.github.darlene.leakdetectionapplication.sensor.*;
 import io.github.darlene.leakdetectionapplication.simulation.*;
 import io.github.darlene.leakdetectionapplication.shared.*;
 
@@ -20,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
-import io.github.darlene.leakdetectionapplication.sensor.SensorReadingService;
-import io.github.darlene.leakdetectionapplication.sensor.SensorReadingResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import io.swagger.v3.oas.annotations.tags.Tag;

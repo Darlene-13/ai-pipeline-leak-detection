@@ -10,7 +10,7 @@ import io.github.darlene.leakdetectionapplication.pipeline.*;
 import io.github.darlene.leakdetectionapplication.recommendation.*;
 import io.github.darlene.leakdetectionapplication.sensor.*;
 import io.github.darlene.leakdetectionapplication.simulation.*;
-import io.github.darlene.leakdetectionapplication.shared.*;
+
 
 import jakarta.servlet.http.HttpServletRequest;
 

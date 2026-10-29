@@ -8,7 +8,6 @@ import io.github.darlene.leakdetectionapplication.messaging.*;
 import io.github.darlene.leakdetectionapplication.monitoring.*;
 import io.github.darlene.leakdetectionapplication.pipeline.*;
 import io.github.darlene.leakdetectionapplication.recommendation.*;
-import io.github.darlene.leakdetectionapplication.sensor.*;
 import io.github.darlene.leakdetectionapplication.simulation.*;
 import io.github.darlene.leakdetectionapplication.shared.*;
 
@@ -17,11 +16,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import lombok.extern.slf4j.Slf4j;
 import lombok.RequiredArgsConstructor;
-import io.github.darlene.leakdetectionapplication.sensor.SensorReadingRepository;
-import io.github.darlene.leakdetectionapplication.sensor.SensorReading;
-import io.github.darlene.leakdetectionapplication.sensor.SensorReadingResponse;
-import io.github.darlene.leakdetectionapplication.sensor.SensorReadingNotFoundException;
-import io.github.darlene.leakdetectionapplication.sensor.SensorReadingMapper;
 import java.time.OffsetDateTime;
 import java.util.List;
 
