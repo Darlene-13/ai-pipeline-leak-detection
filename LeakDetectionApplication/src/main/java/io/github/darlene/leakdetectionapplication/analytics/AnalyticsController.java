@@ -1,7 +1,7 @@
 package io.github.darlene.leakdetectionapplication.analytics;
 
 import io.github.darlene.leakdetectionapplication.alert.*;
-import io.github.darlene.leakdetectionapplication.analytics.*;
+
 import io.github.darlene.leakdetectionapplication.auth.*;
 import io.github.darlene.leakdetectionapplication.configuration.*;
 import io.github.darlene.leakdetectionapplication.messaging.*;
@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
-import io.github.darlene.leakdetectionapplication.analytics.AnalyticsSummaryService;
-import io.github.darlene.leakdetectionapplication.analytics.AnalyticsSummaryResponse;
-import io.github.darlene.leakdetectionapplication.analytics.LatencyStatsResponse;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import io.swagger.v3.oas.annotations.tags.Tag;

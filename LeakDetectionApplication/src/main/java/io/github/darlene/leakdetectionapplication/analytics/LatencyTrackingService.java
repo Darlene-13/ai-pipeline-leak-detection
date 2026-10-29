@@ -1,7 +1,6 @@
 package io.github.darlene.leakdetectionapplication.analytics;
 
 import io.github.darlene.leakdetectionapplication.alert.*;
-import io.github.darlene.leakdetectionapplication.analytics.*;
 import io.github.darlene.leakdetectionapplication.auth.*;
 import io.github.darlene.leakdetectionapplication.configuration.*;
 import io.github.darlene.leakdetectionapplication.messaging.*;
@@ -15,7 +14,6 @@ import io.github.darlene.leakdetectionapplication.shared.*;
 // Spring
 import org.springframework.stereotype.Service;
 
-import io.github.darlene.leakdetectionapplication.analytics.LatencyStatsResponse;
 
 // Lombok
 import lombok.RequiredArgsConstructor;
