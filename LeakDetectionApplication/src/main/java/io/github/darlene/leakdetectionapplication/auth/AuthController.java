@@ -2,7 +2,6 @@ package io.github.darlene.leakdetectionapplication.auth;
 
 import io.github.darlene.leakdetectionapplication.alert.*;
 import io.github.darlene.leakdetectionapplication.analytics.*;
-import io.github.darlene.leakdetectionapplication.auth.*;
 import io.github.darlene.leakdetectionapplication.configuration.*;
 import io.github.darlene.leakdetectionapplication.messaging.*;
 import io.github.darlene.leakdetectionapplication.monitoring.*;
@@ -22,10 +21,6 @@ import org.springframework.validation.annotation.Validated;
 
 import jakarta.validation.Valid;
 
-import io.github.darlene.leakdetectionapplication.auth.RegisterRequest;
-import io.github.darlene.leakdetectionapplication.auth.LoginRequest;
-import io.github.darlene.leakdetectionapplication.auth.LoginResponse;
-import io.github.darlene.leakdetectionapplication.auth.AuthService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

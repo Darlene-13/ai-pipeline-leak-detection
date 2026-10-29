@@ -2,7 +2,6 @@ package io.github.darlene.leakdetectionapplication.auth;
 
 import io.github.darlene.leakdetectionapplication.alert.*;
 import io.github.darlene.leakdetectionapplication.analytics.*;
-import io.github.darlene.leakdetectionapplication.auth.*;
 import io.github.darlene.leakdetectionapplication.configuration.*;
 import io.github.darlene.leakdetectionapplication.messaging.*;
 import io.github.darlene.leakdetectionapplication.monitoring.*;
@@ -18,9 +17,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import io.github.darlene.leakdetectionapplication.auth.UserRepository;
-import io.github.darlene.leakdetectionapplication.auth.OperatorDetails;
-import io.github.darlene.leakdetectionapplication.auth.User;
 
 import lombok.RequiredArgsConstructor;
 

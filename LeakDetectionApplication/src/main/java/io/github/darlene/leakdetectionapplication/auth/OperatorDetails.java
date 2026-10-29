@@ -2,7 +2,6 @@ package io.github.darlene.leakdetectionapplication.auth;
 
 import io.github.darlene.leakdetectionapplication.alert.*;
 import io.github.darlene.leakdetectionapplication.analytics.*;
-import io.github.darlene.leakdetectionapplication.auth.*;
 import io.github.darlene.leakdetectionapplication.configuration.*;
 import io.github.darlene.leakdetectionapplication.messaging.*;
 import io.github.darlene.leakdetectionapplication.monitoring.*;
@@ -15,7 +14,7 @@ import io.github.darlene.leakdetectionapplication.shared.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import io.github.darlene.leakdetectionapplication.auth.User;
+
 import java.util.Collection;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
