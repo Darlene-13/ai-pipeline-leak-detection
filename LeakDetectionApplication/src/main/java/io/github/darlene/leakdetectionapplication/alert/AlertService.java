@@ -1,6 +1,5 @@
 package io.github.darlene.leakdetectionapplication.alert;
 
-import io.github.darlene.leakdetectionapplication.alert.*;
 import io.github.darlene.leakdetectionapplication.analytics.*;
 import io.github.darlene.leakdetectionapplication.auth.*;
 import io.github.darlene.leakdetectionapplication.configuration.*;
@@ -19,25 +18,13 @@ import org.springframework.data.domain.PageRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import io.github.darlene.leakdetectionapplication.alert.FaultAlertRepository;
-import io.github.darlene.leakdetectionapplication.alert.FaultAlert;
-import io.github.darlene.leakdetectionapplication.alert.FaultClass;
 import io.github.darlene.leakdetectionapplication.sensor.SensorReading;
-import io.github.darlene.leakdetectionapplication.alert.SeverityLevel;
-import io.github.darlene.leakdetectionapplication.alert.FaultAlertMapper;
-import io.github.darlene.leakdetectionapplication.alert.FaultAlertResponse;
 import io.github.darlene.leakdetectionapplication.analytics.AnalyticsSummaryResponse;
 import io.github.darlene.leakdetectionapplication.pipeline.MLPredictionResponse;
-import io.github.darlene.leakdetectionapplication.alert.FaultAlertNotFoundException;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Service responsible for fault alert persistence and retrieval.
- * Handles alert creation, querying, and analytics summary generation.
- * All pressure statistics calculated across all three pipeline nodes.
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -47,22 +34,15 @@ public class AlertService {
     private final FaultAlertMapper faultAlertMapper;
     private final SensorReadingService sensorReadingService;
 
-    /**
-     * Saves a new fault alert to the database.
-     * Derives severity from ML confidence score and predicted class.
-     * readingTime is copied from the SensorReading to satisfy the
-     * composite FK (sensor_reading_id, reading_time) on fault_alerts.
-     * Returns mapped response DTO for immediate WebSocket broadcast.
-     */
     public FaultAlertResponse saveAlert(SensorReading reading,
                                         MLPredictionResponse prediction,
                                         String recommendation,
                                         long latencyMs) {
-
+        //For you to save an alert you have to build the alert
         FaultAlert alert = FaultAlert.builder()
                 .sensorReading(reading)
                 .deviceId(reading.getDeviceId())
-                .readingTime(reading.getReadingTime())  // satisfies NOT NULL + FK constraint
+                .readingTime(reading.getReadingTime())
                 .faultClass(FaultClass.valueOf(prediction.getPredictedClass()))
                 .severityLevel(deriveSeverity(
                         prediction.getConfidence(),
@@ -82,20 +62,12 @@ public class AlertService {
         return faultAlertMapper.toResponse(savedAlert);
     }
 
-    /**
-     * Retrieves paginated fault alerts ordered by creation time descending.
-     * Used by AlertController for dashboard recent alerts panel.
-     */
     public Page<FaultAlertResponse> getRecentAlerts(int page, int size) {
         return faultAlertRepository
                 .findAllByOrderByCreatedAtDesc(PageRequest.of(page, size))
                 .map(faultAlertMapper::toResponse);
     }
 
-    /**
-     * Retrieves a single fault alert by its database ID.
-     * Throws FaultAlertNotFoundException if ID does not exist.
-     */
     public FaultAlertResponse getAlertById(Long id) {
         FaultAlert alert = faultAlertRepository.findById(id)
                 .orElseThrow(() -> new FaultAlertNotFoundException(
@@ -104,10 +76,6 @@ public class AlertService {
         return faultAlertMapper.toResponse(alert);
     }
 
-    /**
-     * Retrieves all alerts within a specified time range.
-     * Used by AlertController for History page date filtering.
-     */
     public List<FaultAlertResponse> getAlertsByDateRange(
             OffsetDateTime from, OffsetDateTime to) {
 
@@ -117,10 +85,6 @@ public class AlertService {
         return faultAlertMapper.toResponseList(alerts);
     }
 
-    /**
-     * Retrieves all alerts of a specific fault classification.
-     * Used by AlertController and analytics for fault type filtering.
-     */
     public List<FaultAlertResponse> getAlertsByFaultClass(FaultClass faultClass) {
         List<FaultAlert> alerts = faultAlertRepository
                 .findByFaultClass(faultClass);
@@ -128,22 +92,12 @@ public class AlertService {
         return faultAlertMapper.toResponseList(alerts);
     }
 
-    /**
-     * Retrieves the single most recent fault alert in the system.
-     * Used by StatusController to determine current pipeline status.
-     * Returns Optional safely — empty if no alerts exist yet.
-     */
     public Optional<FaultAlertResponse> getMostRecentAlert() {
         return faultAlertRepository
                 .findTopByOrderByCreatedAtDesc()
                 .map(faultAlertMapper::toResponse);
     }
 
-    /**
-     * Builds analytics summary for the History page.
-     * Counts fault types, calculates pressure statistics across all three nodes.
-     * Pressure min/max/average calculated across nodeA, nodeB, nodeC per reading.
-     */
     public AnalyticsSummaryResponse getAnalyticsSummary(
             OffsetDateTime from, OffsetDateTime to) {
 
@@ -200,11 +154,6 @@ public class AlertService {
                 .build();
     }
 
-    /**
-     * Derives severity level from ML confidence score and predicted fault class.
-     * NORMAL always returns NONE regardless of confidence.
-     * Thresholds: below 0.50 = LOW, below 0.75 = MODERATE, above = CRITICAL.
-     */
     private SeverityLevel deriveSeverity(double confidence, String predictedClass) {
         if ("NORMAL".equalsIgnoreCase(predictedClass)) {
             return SeverityLevel.NONE;

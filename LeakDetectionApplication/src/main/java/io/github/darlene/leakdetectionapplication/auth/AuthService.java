@@ -2,7 +2,6 @@ package io.github.darlene.leakdetectionapplication.auth;
 
 import io.github.darlene.leakdetectionapplication.alert.*;
 import io.github.darlene.leakdetectionapplication.analytics.*;
-import io.github.darlene.leakdetectionapplication.auth.*;
 import io.github.darlene.leakdetectionapplication.configuration.*;
 import io.github.darlene.leakdetectionapplication.messaging.*;
 import io.github.darlene.leakdetectionapplication.monitoring.*;
@@ -12,24 +11,12 @@ import io.github.darlene.leakdetectionapplication.sensor.*;
 import io.github.darlene.leakdetectionapplication.simulation.*;
 import io.github.darlene.leakdetectionapplication.shared.*;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import io.github.darlene.leakdetectionapplication.auth.UserRepository;
-import io.github.darlene.leakdetectionapplication.auth.RefreshTokenRepository;
-import io.github.darlene.leakdetectionapplication.auth.JwtTokenProvider;
-import io.github.darlene.leakdetectionapplication.auth.User;
-import io.github.darlene.leakdetectionapplication.auth.UserRole;
-import io.github.darlene.leakdetectionapplication.auth.RefreshToken;
-import io.github.darlene.leakdetectionapplication.auth.LoginRequest;
-import io.github.darlene.leakdetectionapplication.auth.LoginResponse;
-import io.github.darlene.leakdetectionapplication.auth.RegisterRequest;
-import io.github.darlene.leakdetectionapplication.auth.InvalidTokenException;
-import io.github.darlene.leakdetectionapplication.auth.TokenExpiredException;
-import io.github.darlene.leakdetectionapplication.auth.InvalidCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.time.Instant;
@@ -38,7 +25,7 @@ import java.time.temporal.ChronoUnit;
 import java.time.LocalDateTime;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class AuthService {
 
     private final UserRepository userRepository;

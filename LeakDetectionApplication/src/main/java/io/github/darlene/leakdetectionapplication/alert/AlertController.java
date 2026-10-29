@@ -1,6 +1,6 @@
 package io.github.darlene.leakdetectionapplication.alert;
 
-import io.github.darlene.leakdetectionapplication.alert.*;
+
 import io.github.darlene.leakdetectionapplication.analytics.*;
 import io.github.darlene.leakdetectionapplication.auth.*;
 import io.github.darlene.leakdetectionapplication.configuration.*;
@@ -21,9 +21,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.annotation.Validated;
-import io.github.darlene.leakdetectionapplication.alert.FaultAlertResponse;
-import io.github.darlene.leakdetectionapplication.alert.AlertService;
-import io.github.darlene.leakdetectionapplication.alert.FaultClass;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import io.swagger.v3.oas.annotations.tags.Tag;

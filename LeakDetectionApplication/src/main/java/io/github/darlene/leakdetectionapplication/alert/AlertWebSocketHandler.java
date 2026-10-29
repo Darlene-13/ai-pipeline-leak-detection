@@ -1,6 +1,5 @@
 package io.github.darlene.leakdetectionapplication.alert;
 
-import io.github.darlene.leakdetectionapplication.alert.*;
 import io.github.darlene.leakdetectionapplication.analytics.*;
 import io.github.darlene.leakdetectionapplication.auth.*;
 import io.github.darlene.leakdetectionapplication.configuration.*;
@@ -12,7 +11,6 @@ import io.github.darlene.leakdetectionapplication.sensor.*;
 import io.github.darlene.leakdetectionapplication.simulation.*;
 import io.github.darlene.leakdetectionapplication.shared.*;
 
-import io.github.darlene.leakdetectionapplication.alert.FaultAlertResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,12 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.io.IOException;
 
-/**
- * Manages all active WebSocket browser sessions.
- * Broadcasts fault alerts to every connected dashboard client.
- * Sessions list is initialized inline — not injected by Spring.
- * ObjectMapper is injected by Spring for JSON serialization.
- */
+
 @Slf4j
 @Component
 public class AlertWebSocketHandler extends TextWebSocketHandler {
