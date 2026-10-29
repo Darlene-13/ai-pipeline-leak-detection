@@ -5,7 +5,6 @@ import io.github.darlene.leakdetectionapplication.analytics.*;
 import io.github.darlene.leakdetectionapplication.auth.*;
 import io.github.darlene.leakdetectionapplication.configuration.*;
 import io.github.darlene.leakdetectionapplication.messaging.*;
-import io.github.darlene.leakdetectionapplication.monitoring.*;
 import io.github.darlene.leakdetectionapplication.pipeline.*;
 import io.github.darlene.leakdetectionapplication.recommendation.*;
 import io.github.darlene.leakdetectionapplication.sensor.*;
@@ -21,10 +20,9 @@ import io.github.darlene.leakdetectionapplication.alert.AlertService;
 import io.github.darlene.leakdetectionapplication.analytics.LatencyTrackingService;
 import io.github.darlene.leakdetectionapplication.pipeline.MLBridgeService;
 import io.github.darlene.leakdetectionapplication.pipeline.CacheService;
-import io.github.darlene.leakdetectionapplication.monitoring.SystemStatusResponse;
 import io.github.darlene.leakdetectionapplication.alert.FaultAlertResponse;
 import io.github.darlene.leakdetectionapplication.analytics.LatencyStatsResponse;
-import io.github.darlene.leakdetectionapplication.monitoring.SystemStatus;
+
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

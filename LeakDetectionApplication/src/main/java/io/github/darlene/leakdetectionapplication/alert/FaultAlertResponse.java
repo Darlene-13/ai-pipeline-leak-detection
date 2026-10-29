@@ -1,6 +1,9 @@
 package io.github.darlene.leakdetectionapplication.alert;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 import java.time.OffsetDateTime;
 
 public record FaultAlertResponse(
@@ -21,4 +24,11 @@ public record FaultAlertResponse(
         @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
         OffsetDateTime createdAt
 ) {
+    public String getFaultClass() {
+        return "";
+    }
+
+    public OffsetDateTime getCreatedAt() {
+        return null;
+    }
 }
